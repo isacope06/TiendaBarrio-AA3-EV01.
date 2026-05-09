@@ -9,6 +9,22 @@
 
 <h1>Registro de Productos</h1>
 
+<div th:if="${mensaje == 'guardado'}">
+
+    <p style="color: green;">
+        Producto guardado correctamente
+    </p>
+
+</div>
+
+<div th:if="${mensaje == 'eliminado'}">
+
+    <p style="color: red;">
+        Producto eliminado correctamente
+    </p>
+
+</div>
+
 <!-- Formulario para guardar productos -->
 <form th:action="@{/guardar}" method="post">
 
@@ -51,6 +67,7 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Cantidad</th>
+        <th>Acciones</th>
     </tr>
 
     <!-- Recorrer lista de productos -->
@@ -63,6 +80,13 @@
         <td th:text="${producto.precio}"></td>
 
         <td th:text="${producto.cantidad}"></td>
+        <td>
+
+            <a th:href="@{/eliminar/{id}(id=${producto.id})}">
+                Eliminar
+            </a>
+
+        </td>
 
     </tr>
 

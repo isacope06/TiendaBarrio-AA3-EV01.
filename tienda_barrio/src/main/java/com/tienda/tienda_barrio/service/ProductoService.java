@@ -24,4 +24,10 @@ public class ProductoService {
 
         return repository.findAll();
     }
+
+    // Metodo para eliminar productos
+    public void eliminarProducto(Long id) {
+
+        repository.deleteById(id);
+    }
 }
